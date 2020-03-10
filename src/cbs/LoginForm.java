@@ -74,7 +74,6 @@ public class LoginForm extends javax.swing.JFrame {
         setLocation(new java.awt.Point(500, 500));
         setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -93,11 +92,14 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CSC BORROWING SYSTEM");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(110, 350, 274, 56);
+        jLabel3.setBounds(110, 390, 274, 56);
 
         StudInfo.setBackground(new java.awt.Color(255, 255, 255));
+        StudInfo.setMaximumSize(new java.awt.Dimension(1129, 152));
+        StudInfo.setMinimumSize(new java.awt.Dimension(1129, 152));
+        StudInfo.setPreferredSize(new java.awt.Dimension(1129, 152));
         jPanel1.add(StudInfo);
-        StudInfo.setBounds(140, 130, 214, 211);
+        StudInfo.setBounds(140, 170, 214, 211);
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 672));
 
@@ -210,8 +212,8 @@ public class LoginForm extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/logindatabase", "root", "");
-            String sql = "SELECT * FROM logintable WHERE username=? and password=?";
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cbs_db", "root", "");
+            String sql = "SELECT * FROM users WHERE username=? and password=?";
             String pass = password.getText();
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, username.getText());
@@ -221,11 +223,11 @@ public class LoginForm extends javax.swing.JFrame {
             if(rs.next()){
                 String passwordd = rs.getString("password");
                 if(pass.equals(passwordd))
-                {
-                    dispose();
-                    Homepage myobj = new Homepage();
-                   myobj.setVisible(true);
-                   setVisible(false);
+                {   
+                   Check check = new Check();
+                   check.setVisible(true);
+     
+                   
                 }
                 else
                 {
@@ -260,7 +262,7 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
+        System.exit(0);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
