@@ -20,6 +20,7 @@ public class Check extends javax.swing.JFrame {
      */
     public Check() {
         initComponents();
+     
         this.setLocationRelativeTo(null);
 //         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("check1.gif")));
 //    
@@ -110,6 +111,8 @@ public class Check extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            
+           
             Home myobj = new Home();
             myobj.setVisible(true);
             setVisible(false);        // TODO add your handling code here:
