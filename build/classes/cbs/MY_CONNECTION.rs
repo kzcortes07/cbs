@@ -1,1 +1,0 @@
-javaprogram.MY_CONNECTION
